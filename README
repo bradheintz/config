@@ -1,0 +1,8 @@
+symlink ~/.vimrc to config/vimrc
+symlink ~/.gvimrc to config/gvimrc
+symlink ~/.vim to config/vim
+
+TODO
+- add in more config files (e.g. bash stuff, git stuff)
+- include a setup script with the ln commands to do the above symlinks
+
