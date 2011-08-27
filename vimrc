@@ -80,7 +80,10 @@ map <leader>tm :tabmove
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
+
 map <leader>rf ggVG=
+map <leader>td i# TODO
+
 
 function! s:swap_lines(n1, n2)
     let line1 = getline(a:n1)
@@ -111,4 +114,3 @@ endfunction
 
 noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
 noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
-
