@@ -1,0 +1,42 @@
+# -*- ruby -*-
+
+require 'autotest/growl'
+# require 'autotest/html_report'
+# require 'autotest/kdenotify'
+# require 'autotest/menu'
+# require 'autotest/pretty'
+# require 'autotest/redgreen'
+# require 'redgreen/autotest'
+# require 'autotest/snarl'
+# require 'autotest/timestamp'
+require 'autotest/bundler'
+# $VERBOSE = false
+
+
+# module Autotest::Growl
+#   # def self.growl title, msg, img, pri=0, stick=""
+#   #   system "growlnotify -n autotest --image #{img} -p #{pri} -m '#{msg}' #{title} #{stick}"
+#   # end
+#  
+#   def self.growl title, msg, pri=0, stick=""
+#     system "growlnotify -n autotest -p #{pri} -m '#{msg}' #{title} #{stick}"
+#   end
+# 
+#   Autotest.add_hook :red do |at|
+#     errors = at.files_to_test.map { |k, v| "#{k}:\n #{v.join("\n ")}"}.join("\n\n")
+#     #failed_tests = at.files_to_test.inject(0){ |s,a| k,v = a; s + v.size}
+#     growl "Tests failed:", "#{errors}", 2
+#   end
+#  
+#   Autotest.add_hook :green do |at|
+#     res = at.results.scan(/Finished.*failures/m).to_s.gsub(/\e\[32m/,'')
+#     growl "Test Results", "#{res}"
+#   end
+# end
+
+Autotest.add_hook :initialize do |at|
+  # Gemfile.lock is causing cucumber to run infinitely. Don't watch it.
+  at.add_exception(%r{^\./Gemfile.lock})
+end
+
+Autotest.add_discovery { 'rspec2' }
