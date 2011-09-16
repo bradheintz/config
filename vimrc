@@ -79,10 +79,10 @@ map <leader>tm :tabmove
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 
 map <leader>rf ggVG=
-map <leader>td i# TODO
+map <leader>td A # TODO 
 
 
 function! s:swap_lines(n1, n2)
